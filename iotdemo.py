@@ -264,12 +264,9 @@ def main():
 
 #        payload = '{}/{}-payload-{}'.format(
 #                args.registry_id, args.device_id, i)
-        p = str(round(random.uniform(20, 30),2))
         temp = str(round(random.uniform(0, 15),2))
-        hum = str(round(random.uniform(20, 23),2))
-        dew = str(round(random.uniform(38, 40),2))
         t = str(datetime.datetime.now(pytz.utc).strftime("%Y-%m-%d %H:%M:%S"))
-        payload = u'{"pressure": "' + p + u'", "temperature": "' + temp + u'", "dewpoint": "' + dew + u'", "timecollected": "' + t + u'", "latitude": "45", "sensorID": "' + args.device_id + u'", "zipcode": "12345", "longitude": "-132.085637", "humidity": "' + hum + u'"}'
+        payload = u'{"temperature": "' + temp + u'", "timecollected": "' + t + u'", "deviceID": "' + args.device_id + u'"}'
         print('Publishing message {}/{}: \'{}\''.format(
                 i, args.num_messages, payload))
         # [START iot_mqtt_jwt_refresh]
